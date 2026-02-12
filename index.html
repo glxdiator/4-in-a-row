@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connect Four</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="start-screen">
+    <header>
+      <h1>Connect Four</h1>
+      <p class="tagline">Get four in a row to win!</p>
+    </header>
+    <div class="start-actions">
+      <button type="button" id="btn-start" class="btn btn-primary">Start Game</button>
+      <button type="button" id="btn-rules" class="btn btn-secondary">How to Play</button>
+    </div>
+  </div>
+
+  <div id="game-screen" class="hidden">
+    <div class="game-header">
+      <button type="button" id="btn-back-menu" class="btn btn-small btn-ghost">Back to menu</button>
+      <h2 id="turn-display">Player 1's turn</h2>
+      <div class="game-header-actions">
+        <button type="button" id="btn-help" class="btn btn-small" aria-label="Open rules">?</button>
+        <button type="button" id="btn-replay" class="btn btn-small">New Game</button>
+      </div>
+    </div>
+    <div class="game-main">
+      <div id="board-container">
+        <div id="board" role="grid" aria-label="Connect Four game board"></div>
+      </div>
+      <section class="score-board" id="score-board" aria-labelledby="score-board-title">
+        <h2 id="score-board-title">Score Board</h2>
+        <div class="score-totals">
+          <div class="score-total player1">
+            <span class="score-label">Player 1</span>
+            <span class="score-value" id="wins-p1">0</span>
+            <span class="score-unit">wins</span>
+          </div>
+          <div class="score-total draws">
+            <span class="score-label">Draws</span>
+            <span class="score-value" id="draws-count">0</span>
+          </div>
+          <div class="score-total player2">
+            <span class="score-label">Player 2</span>
+            <span class="score-value" id="wins-p2">0</span>
+            <span class="score-unit">wins</span>
+          </div>
+        </div>
+        <div class="score-history">
+          <h3>Last games</h3>
+          <ul id="score-history-list" aria-label="Recent game results"></ul>
+        </div>
+        <button type="button" id="btn-reset-scores" class="btn btn-small btn-ghost">Reset scores</button>
+      </section>
+    </div>
+    <div id="game-message" class="hidden" aria-live="polite"></div>
+  </div>
+
+  <div id="rules-modal" class="modal hidden" role="dialog" aria-labelledby="rules-title" aria-modal="true">
+    <div class="modal-content">
+      <h2 id="rules-title">How to Play</h2>
+      <div class="rules-body">
+        <p><strong>Goal:</strong> Be the first to get four of your pieces in a row — horizontally, vertically, or diagonally.</p>
+        <p><strong>Controls:</strong> Click a column to drop your piece (or use arrow keys to choose a column and Enter/Space to drop). The piece falls to the lowest available slot.</p>
+        <p><strong>Turns:</strong> Player 1 (red) and Player 2 (yellow) take turns. Red goes first.</p>
+        <p><strong>Winning:</strong> The first player to connect four wins. If the board fills up with no winner, the game is a draw.</p>
+      </div>
+      <button type="button" id="btn-close-rules" class="btn btn-primary">Got it</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
